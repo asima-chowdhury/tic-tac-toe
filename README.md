@@ -1,4 +1,4 @@
-# Tic-Tac-Toe
+## ![rocketIcon][rocketicon-shield] # Tic-Tac-Toe
 
 This project is a simple game built using Vite, React, and TailwindCSS. The main feature is the ability to track and display the game's move history.
 
@@ -9,18 +9,14 @@ This project is a simple game built using Vite, React, and TailwindCSS. The main
 - **TailwindCSS**: Utility-first CSS for styling.
 - **Move History**: The game tracks every move made by the player and displays it as part of the game state.
 
-## Getting Started
-
-Follow these instructions to set up the project locally.
-
-### Prerequisites
+### 📋 Prerequisites
 
 Ensure you have the following installed on your machine:
 
 - [Node.js](https://nodejs.org/) >= 14
 - npm or yarn
 
-### Installation
+### 📚 Installation
 
 1. Clone the repository:
 
@@ -69,3 +65,6 @@ Ensure you have the following installed on your machine:
 - `npm run dev` or `yarn dev` – Starts the development server.
 - `npm run build` or `yarn build` – Builds the app for production.
 - `npm run serve` or `yarn serve` – Serves the built app.
+
+
+[rocketicon-shield]: https://img.icons8.com/?size=24&id=bY5t0noHcfXn&format=png
