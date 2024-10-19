@@ -9,7 +9,17 @@ import { useState } from "react";
 function Square({ value, onSquareClick }) {
   return (
     <button
-      className="bg-white border border-gray-400 h-12 w-12 m-1 leading-9 text-lg"
+      className={
+        `${
+          value === "X"
+            ? "text-blue-500 bg-teal-300"
+            : value === "O"
+            ? "text-blue-500 bg-fuchsia-300"
+            : "bg-gray-600"
+        }` +
+        " " +
+        "h-[65px] w-[65px] hover:bg-gray-400 outline outline-1 outline-gray-300 m-[2px] transform duration-200 font-bold py-4 px-6 rounded text-gray-900 text-[20px]"
+      }
       onClick={onSquareClick}
     >
       {value}
@@ -25,7 +35,7 @@ function Board({ xIsNext, squares, onPlay }) {
   if (winner) {
     status = `Winner: ${winner}`;
   } else {
-    status = "Next Player " + (xIsNext ? "X" : "O");
+    status = "Next Player is : " + (xIsNext ? "X" : "O");
   }
 
   function handleClick(i) {
@@ -43,7 +53,7 @@ function Board({ xIsNext, squares, onPlay }) {
 
   return (
     <>
-      <div>{status}</div>
+      <div className="text-white pb-3 text-2xl">{status}</div>
       <div className="flex">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
@@ -71,11 +81,11 @@ export default function Game() {
 
   function handlePlay(nextSquares) {
     setXIsNext(!xIsNext);
-    const nextHistory = [...history.slice(0, currentMove+1), nextSquares];
-    setHistory(nextHistory)
-    setCurrentMove(nextHistory.length-1);
+    const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+    setHistory(nextHistory);
+    setCurrentMove(nextHistory.length - 1);
   }
- 
+
   function jumpTo(move) {
     setCurrentMove(move);
     setXIsNext(move % 2 === 0);
@@ -83,24 +93,24 @@ export default function Game() {
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
-      description = `Go to the move # ${move}`;
+      description = `👉 Go to the move # ${move}`;
     } else {
-      description = `Go to start the game`;
+      description = `👉 Go to start the game`;
     }
     return (
-      <li key={move} className="bg-gray-700 text-white mb-1 p-2 rounded-sm">
-        <button onClick={() => jumpTo(move)}>{description}</button>
+      <li key={move} className='bg-gray-600 p-2 my-2 rounded shadow-lg hover:bg-gray-500 text-white'>
+        <button onClick={() => jumpTo(move)}> {description}</button>
       </li>
     );
   });
   return (
-    <div className="flex justify-center p-4 ">
+    <div className="flex justify-center items-center p-4 w-full min-h-screen">
       <div className="mr-16">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
 
       <div>
-        <ol className="border border-gray-400 p-1 text-lg">{moves}</ol>
+        <ol className="bg-slate-700 p-7 my-2 rounded p-1 text-lg">{moves}</ol>
       </div>
     </div>
   );
