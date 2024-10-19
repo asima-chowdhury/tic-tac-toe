@@ -67,7 +67,7 @@ Ensure you have the following installed on your machine:
 - `npm run serve` or `yarn serve` – Serves the built app.
 
 
-## If you enjoy this game hit a "🌟" or this repository.
+## If you enjoy this game hit a "🌟" on this repository.
  Thank You!
- 
+
 [rocketicon-shield]: https://img.icons8.com/?size=24&id=bY5t0noHcfXn&format=png
